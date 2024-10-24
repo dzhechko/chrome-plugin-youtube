@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Summarizer</title>
+  <style>
+    body { font-family: Arial, sans-serif; width: 300px; padding: 10px; margin: 0; }
+    h2 { margin-top: 0; margin-bottom: 10px; font-size: 18px; }
+    input, button { width: 100%; margin-bottom: 5px; padding: 3px; }
+    .input-container { margin-bottom: 5px; }
+    .input-row { display: flex; align-items: center; }
+    .input-field { flex-grow: 1; margin-right: 5px; }
+    .toggle-btn { width: auto; padding: 2px 5px; }
+    #summaryContainer {
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 150px; /* Уменьшено в два раза с 300px */
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    #sentenceSlider {
+      flex-grow: 1;
+      margin-right: 5px;
+    }
+    #sentenceCount {
+      width: 20px;
+      text-align: right;
+    }
+    .input-label {
+      font-size: 0.7em;
+      color: #666;
+      margin-bottom: 1px;
+    }
+    #summary {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>YouTube Video Summarizer</h2>
+    <div class="input-container">
+      <label class="input-label" for="baseUrl">Base URL</label>
+      <div class="input-row">
+        <input type="password" id="baseUrl" class="input-field" placeholder="Enter Base URL">
+        <button id="toggleBaseUrl" class="toggle-btn">👁️</button>
+      </div>
+    </div>
+    <div class="input-container">
+      <label class="input-label" for="apiKey">API Key</label>
+      <div class="input-row">
+        <input type="password" id="apiKey" class="input-field" placeholder="Enter API Key">
+        <button id="toggleApiKey" class="toggle-btn">👁️</button>
+      </div>
+    </div>
+    <div class="input-container">
+      <label class="input-label" for="modelName">Model Name</label>
+      <div class="input-row">
+        <input type="password" id="modelName" class="input-field" placeholder="Enter GPT Model Name">
+        <button id="toggleModelName" class="toggle-btn">👁️</button>
+      </div>
+    </div>
+    <div class="slider-container">
+      <input type="range" id="sentenceSlider" min="5" max="25" value="10">
+      <span id="sentenceCount">10</span>
+    </div>
+    <button id="saveSettings">Save Settings</button>
+    <button id="summarizeBtn">Summarize Video</button>
+    <div id="summaryContainer">
+      <h3 style="margin-top: 0; margin-bottom: 5px; font-size: 16px;">Summary</h3>
+      <div id="summary"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
